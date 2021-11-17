@@ -11,7 +11,7 @@ from sklearn.metrics import roc_curve, auc
 from sklearn.linear_model._logistic import LogisticRegression
 
 #数据处理
-file = open('D:\研究生课程\机器学习\dataR2.txt','r')
+file = open('dataR2.txt','r')
 data = []
 for line in file.readlines():
     row = []
@@ -40,16 +40,16 @@ y_pred = clf.predict(Xtest)
 y_score = clf.predict_proba(Xtest)[:, 0]
 
 #贝叶斯分类器
-'''gnb = GaussianNB()
+gnb = GaussianNB()
 gnb = gnb.fit(Xtrain, Ytrain)
 y_pred = gnb.predict(Xtest)
-y_score = gnb.predict_proba(Xtest)[:, 0]'''
+y_score = gnb.predict_proba(Xtest)[:, 0]
 
 #逻辑回归
-'''clf = LogisticRegression()
+clf = LogisticRegression()
 clf.fit(Xtrain, Ytrain)
 y_pred = clf.predict(Xtest)
-y_score = clf.predict_proba(Xtest)[:, 0]'''
+y_score = clf.predict_proba(Xtest)[:, 0]
 
 #ROC曲线与AUC值
 fpr, tpr, thersholds = roc_curve(Ytest, y_score, pos_label='1',drop_intermediate=False)
